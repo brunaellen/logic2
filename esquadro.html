@@ -1,0 +1,29 @@
+<canvas width="600" height="600"></canvas>
+
+<script>
+
+    function criaPrimeiroTriangulo(paintBrush) {
+        paintBrush.fillStyle = "black";
+        paintBrush.beginPath();
+        paintBrush.moveTo(50, 50);
+        paintBrush.lineTo(50, 400);
+        paintBrush.lineTo(400, 400);
+        paintBrush.fill();
+    }
+
+    function criaSegundoTriangulo(paintBrush){
+        paintBrush.fillStyle = "white";
+        paintBrush.beginPath();
+        paintBrush.moveTo(100, 175);
+        paintBrush.lineTo(100,350);
+        paintBrush.lineTo(275,350);
+        paintBrush.fill();
+    }
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    criaPrimeiroTriangulo(paintBrush);
+    criaSegundoTriangulo(paintBrush)
+
+</script>

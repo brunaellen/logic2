@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Teste de tabela</title>
+    </head>
+    <body>
+        <form>
+        <table>
+            <thead>
+                <tr>
+                    <td>Valor 1</td>
+                    <td>Valor 2</td>
+                    <td>Soma</td>
+                </tr>
+            </thead>
+            <tr>
+                <td><input type="number" id="txtValor1" placeholder="Digite valor 1" /></td>
+                <td><input type="number" id="txtValor2" placeholder="Digite valor 2" /></td>
+                <td><input type="number" readonly="true" id="txtSoma" /></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="button" onclick="executaSoma();" value="Executa Soma" width="200px"></td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>
+
+<script lang="javascript">
+
+    function calculaSoma(valor1, valor2) {
+        return parseInt(valor1) + parseInt(valor2);
+    }
+
+    function executaSoma() {
+        var valor1 = document.getElementById("txtValor1").value;
+        var valor2 = document.getElementById("txtValor2").value;
+        var soma = calculaSoma(valor1, valor2);
+        
+        document.getElementById("txtSoma").value = soma;
+    }
+</script>

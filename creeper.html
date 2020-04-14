@@ -1,0 +1,46 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    var larguraTotalCabeca = 350;
+    var alturaTotalCabeca = 300;
+    var valorXCabeca = 0;
+    var valorYCabeca = 0;
+
+    paintBrush.fillStyle = "darkgreen";
+    paintBrush.fillRect(valorXCabeca, valorYCabeca, larguraTotalCabeca, alturaTotalCabeca);
+
+    var larguraTotalDoNariz = 70;
+    var larguraTotalDoOlho = 90;
+    var alturaTotalDoOlho = 90;
+
+    var pontoMedio = (larguraTotalCabeca / 2);
+    var valorXOlhoEsquerdo = pontoMedio - (larguraTotalDoNariz / 2) - larguraTotalDoOlho;
+    var valorYOlhoEsquerdo = 55;
+    var valorYOlhoDireito = 55;
+
+    var valorXOlhoDireito = pontoMedio + (larguraTotalDoNariz / 2);
+    paintBrush.fillStyle = "black";
+    paintBrush.fillRect(valorXOlhoEsquerdo, valorYOlhoEsquerdo, larguraTotalDoOlho, alturaTotalDoOlho);
+    paintBrush.fillRect(valorXOlhoDireito, valorYOlhoDireito, larguraTotalDoOlho, alturaTotalDoOlho);
+
+    var alturaTotalDoNariz = 100;
+    var valorXNariz = valorXOlhoEsquerdo + larguraTotalDoOlho;
+    var valorYNariz = valorYOlhoEsquerdo + alturaTotalDoOlho;
+    paintBrush.fillRect(valorXNariz, valorYNariz, larguraTotalDoNariz, alturaTotalDoNariz);
+
+    var larguraTotalBoca = 40;
+    var alturaTotalBoca = 110;
+    var valorXBocaLadoEsquerdo = valorXOlhoEsquerdo + larguraTotalDoOlho - larguraTotalBoca;
+    var alturaDaCabecaAteOFimDoOlho = valorYCabeca + (valorYOlhoEsquerdo + alturaTotalDoOlho);
+    var alturaDoQuadradoSemNome = alturaTotalCabeca - alturaDaCabecaAteOFimDoOlho - alturaTotalBoca;
+    var valorYBoca = alturaDaCabecaAteOFimDoOlho + alturaDoQuadradoSemNome;
+    
+    var valorXBocaLadoDireito = valorXBocaLadoEsquerdo + larguraTotalBoca + larguraTotalDoNariz;
+    paintBrush.fillRect(valorXBocaLadoEsquerdo, valorYBoca, larguraTotalBoca, alturaTotalBoca);
+    paintBrush.fillRect(valorXBocaLadoDireito, valorYBoca, larguraTotalBoca, alturaTotalBoca);
+
+</script>
