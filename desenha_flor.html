@@ -1,0 +1,62 @@
+<canvas width="600" height="400" ></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    var width = 600;
+    var height = 400;
+    paintBrush.fillStyle = "lightgray";
+    paintBrush.fillRect(0, 0, width, height);
+
+    function desenhaCirculo(x, y, raio, anguloInicial, anguloFinal, cor) {
+        
+        paintBrush.fillStyle = cor;
+        paintBrush.beginPath();
+        paintBrush.arc(x, y, raio, anguloInicial, anguloFinal);
+        paintBrush.fill();
+    }
+
+    var x1 = width/2;
+    var y1 = height/2;
+    var raio1 = 14
+    var cor1 = "red";
+    var anguloInicial1 = 0;
+    var anguloFinal1 = 2*3.14;
+    var diametroDoCirculo1Vermelho = 2 * raio1
+    var circulo1Vermelho = desenhaCirculo(x1, y1, raio1, anguloInicial1, anguloFinal1, cor1);
+
+    
+    var x2 = (width/2) - diametroDoCirculo1Vermelho;
+    var y2 = height/2;
+    var raio2 = 14
+    var cor2 = "orange";
+    var anguloInicial2 = 0;
+    var anguloFinal2 = 2 * 3.14;
+    var circulo2Laranja = desenhaCirculo(x2, y2, raio2, anguloInicial2, anguloFinal2, cor2);
+
+    var x3 = (width/2);
+    var y3 = height/2 - diametroDoCirculo1Vermelho;
+    var raio3 = 14
+    var cor3 = "yellow";
+    var anguloInicial3 = 0;
+    var anguloFinal3 = 2 * 3.14;
+    var circulo3Amarelo = desenhaCirculo(x3, y3, raio3, anguloInicial3, anguloFinal3, cor3);
+
+    var x4 = (width/2) + diametroDoCirculo1Vermelho;
+    var y4 = height/2;
+    var raio4 = 14
+    var cor4 = "black";
+    var anguloInicial4 = 0;
+    var anguloFinal4 = 2 * 3.14;
+    var circulo4Black = desenhaCirculo(x4, y4, raio4, anguloInicial4, anguloFinal4, cor4);
+
+    var x5 = (width/2);
+    var y5 = height/2 + diametroDoCirculo1Vermelho;
+    var raio5 = 14
+    var cor5 = "blue";
+    var anguloInicial5 = 0;
+    var anguloFinal5 = 2 * 3.14;
+    var circulo5Blue = desenhaCirculo(x5, y5, raio5, anguloInicial5, anguloFinal5, cor5);
+
+</script>

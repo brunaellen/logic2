@@ -1,0 +1,37 @@
+<canvas width="600" height="400" ></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    var canvasWidth = 600;
+    var canvasHeight = 400;
+    paintBrush.fillStyle = "lightgray";
+    paintBrush.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    function desenhaCirculo(x, y, raio, anguloInicial, anguloFinal, cor) {
+        
+        paintBrush.fillStyle = cor;
+        paintBrush.beginPath();
+        paintBrush.arc(x, y, raio, anguloInicial, anguloFinal);
+        paintBrush.fill();
+    }
+
+    function desenhaFlor(yCentral) {
+        var xCentral = 300;
+        /*var yCentral = 200;*/
+        var raio = 14;
+        var diametroCirculoCentral = 2 * raio;
+        var anguloInicial = 0;
+        var anguloFinal = 2*3.14;
+        desenhaCirculo(xCentral, yCentral, raio, anguloInicial, anguloFinal, "red");
+        desenhaCirculo(xCentral - diametroCirculoCentral, yCentral, raio, anguloInicial, anguloFinal, "orange");
+        desenhaCirculo(xCentral, yCentral - diametroCirculoCentral, raio, anguloInicial, anguloFinal, "yellow");
+        desenhaCirculo(xCentral + diametroCirculoCentral, yCentral, raio, anguloInicial, anguloFinal, "black");
+        desenhaCirculo(xCentral, yCentral + diametroCirculoCentral, raio, anguloInicial, anguloFinal, "blue");
+    }
+    desenhaFlor(200);
+    desenhaFlor(350);
+    desenhaFlor(70);
+
+</script>

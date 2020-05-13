@@ -1,0 +1,23 @@
+<canvas width="600" height="400" ></canvas>
+
+<script>
+
+    function desenhaQuadradoVerde(paintBrush, pontoInicialX, pontoInicialY){
+
+      paintBrush.fillStyle = "green";
+      paintBrush.fillRect(pontoInicialX, pontoInicialY, 50, 50);
+      paintBrush.fillStroke = "black";
+      paintBrush.strokeRect(pontoInicialX, pontoInicialY, 50, 50);                   
+    }
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    var multiplicadorX = 0;
+        
+    for(var y = 0; y<=4; y++){
+      var multiplicadorY = 50 * y;
+      desenhaQuadradoVerde(paintBrush, multiplicadorX, multiplicadorY);
+    }
+
+</script>
