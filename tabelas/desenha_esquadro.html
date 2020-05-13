@@ -1,0 +1,41 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    function desenhaEsquadro(xa, ya, xc, yc, cor){
+
+        paintBrush.fillStyle = cor;
+        paintBrush.beginPath();
+        paintBrush.moveTo(xa, ya);
+        paintBrush.lineTo(xa, yc);
+        paintBrush.lineTo(xc, yc);
+        paintBrush.fill();
+    }
+
+    function escreverTexto(x, y, texto){
+        paintBrush.font = "15px Georgia";
+        paintBrush.fillStyle = "black";
+        paintBrush.fillText(texto, x, y);
+    }
+
+    var xa = 50;
+    var ya = 50;
+    var xc = 400;
+    var yc = 400;
+    desenhaEsquadro(xa, ya, xc, yc, "black");
+    escreverTexto(xa, ya-10, "A");
+    escreverTexto(xa-10, yc, "B");
+    escreverTexto(xc+10, yc, "C");
+
+    var xa = 100;
+    var ya = 175;
+    var xc = 275;
+    var yc = 350;
+    desenhaEsquadro(xa, ya, xc, yc, "white");
+    escreverTexto(xa, ya+20, "A");
+    escreverTexto(xa, yc-10, "B");
+    escreverTexto(xc-20, yc, "C");
+</script>
