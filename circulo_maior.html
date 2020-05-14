@@ -16,8 +16,10 @@
         var x = evento.pageX - canvas.offsetLeft;
         var y = evento.pageY - canvas.offsetTop;
 
-        if (evento.shiftKey) {
+        if (evento.shiftKey && raio + 10 <=40) {
             raio = raio + 10;
+        } else if (evento.altKey && raio - 5 >= 10){
+            raio = raio - 5;
         }
 
         paintBrush.fillStyle = cores[indiceCorAtual];
