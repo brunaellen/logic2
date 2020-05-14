@@ -1,0 +1,22 @@
+<canvas width="600" height="600"></canvas>
+
+<script>
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+    paintBrush.fillStyle = "grey";
+    paintBrush.fillRect(0, 0, 600, 600);
+
+    function desenhaCirculo(evento){
+        var x = evento.pageX - canvas.offsetLeft;
+        var y = evento.pageY - canvas.offsetTop;
+
+        paintBrush.beginPath();
+        paintBrush.fillStyle = "pink";
+        paintBrush.arc(x, y, 10, 0, 2 * 3.14);
+        paintBrush.fill();
+        console.log(x + "," + y);
+    }
+
+    canvas.onclick = desenhaCirculo;
+
+</script>
