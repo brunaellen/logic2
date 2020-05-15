@@ -12,19 +12,13 @@ Escolha uma cor<input type ="color">
 
     var input = document.querySelector("input");
 
-    var raio = 10;
     var desenha = false;
+    var raio = 10;
 
 
     function desenhaCirculo(evento){
         var x = evento.pageX - canvas.offsetLeft;
         var y = evento.pageY - canvas.offsetTop;
-
-        if (evento.shiftKey && raio + 10 <=40) {
-            raio = raio + 10;
-        } else if (evento.altKey && raio - 5 >= 10){
-            raio = raio - 5;
-        } 
 
         if(desenha){
             paintBrush.fillStyle = input.value;
@@ -32,8 +26,11 @@ Escolha uma cor<input type ="color">
             paintBrush.arc(x, y, raio, 0, 2* 3.14);
             paintBrush.fill();
             console.log(x + ',' + y);
+        } if (evento.shiftKey && raio + 10 <=40) {
+            raio = raio + 10;
+        } else if (evento.altKey && raio - 5 >= 10){
+            raio = raio - 5;
         }
-
     }
 
     canvas.onmousemove = desenhaCirculo;
