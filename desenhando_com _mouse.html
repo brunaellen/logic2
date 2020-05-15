@@ -17,6 +17,7 @@ Escolha uma cor<input type ="color">
 
 
     function desenhaCirculo(evento){
+        
         var x = evento.pageX - canvas.offsetLeft;
         var y = evento.pageY - canvas.offsetTop;
 
@@ -26,13 +27,18 @@ Escolha uma cor<input type ="color">
             paintBrush.arc(x, y, raio, 0, 2* 3.14);
             paintBrush.fill();
             console.log(x + ',' + y);
-        } if (evento.shiftKey && raio + 10 <=40) {
+        } 
+    }
+
+    function calculaRaio(evento) {
+        if (evento.shiftKey && raio + 10 <=40) {
             raio = raio + 10;
         } else if (evento.altKey && raio - 5 >= 10){
             raio = raio - 5;
         }
     }
-
+    
+    canvas.onclick = calculaRaio;
     canvas.onmousemove = desenhaCirculo;
 
     function habilitaDesenhar (){
