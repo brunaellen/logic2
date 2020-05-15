@@ -1,0 +1,61 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    function desenhaCirculo(x, y, raio){
+        paintBrush.fillStyle = "pink";
+        paintBrush.beginPath();
+        paintBrush.arc(x, y, raio, 0, 2 * Math.PI);
+        paintBrush.fill();
+    }
+
+    function limpaTela(){
+        paintBrush.clearRect(0, 0, 600, 400);
+    }
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    paintBrush.fillStyle = "white";
+    paintBrush.fillRect(0, 0, 600, 400);
+
+    var x = 20;
+    var y = 20;
+    // passos - fazer a bola ir da esquerda pra direita *
+    //        - fazer a bola parar quando chegar no limite do quadrado *
+    //        - fazer a bola ir da direita para esquerda *
+    //        - fazer a bola parar quando chegar no limite do quadrado *
+
+    /*
+    Em quais condiçoes a bola deve ir da esquerda pra direita?
+    em quais condiçoes a bola deve parar?
+    em quais condicoes a bola deve ir da direita para esquerda?
+    */
+
+    var voltando = false;
+
+    function atualizaTela(){
+        limpaTela(); // 
+        paintBrush.strokeStyle = "black"; //
+        paintBrush.strokeRect(0, 0, 600, 400);
+        paintBrush.fill();
+        if(x<600 && voltando == false){ 
+            desenhaCirculo(x, 20, 10);
+            x++;
+            if(x == 600){
+                voltando = true;
+            }
+        }
+
+        if (x > 0 && voltando == true){
+            desenhaCirculo(x, 20, 10);
+            x--;
+
+            if(x == 0){
+                voltando = false;
+            }
+        }
+        console.log(x + " , " + y);
+    }
+
+    setInterval(atualizaTela, 10);
+</script>
