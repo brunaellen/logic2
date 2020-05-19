@@ -1,0 +1,89 @@
+<canvas width="1200" height="1200"></canvas>
+
+<script>
+
+    /* fazer uma bandeira do brasil, mostrar ela por 3 sec
+    e depois mostrar a bandeira da alemanha por 3 sec e depois retornar
+    p a bandeira brasileira.
+    passos:
+    - desenhar a bandeira brasileira (quadrado, losango e circulo)
+    - desenhar a bandeira d a alemanha(3 quadrados)
+    funcao brasil vai ser false
+    */
+
+
+var canvas = document.querySelector("canvas");
+var paintBrush = canvas.getContext("2d");
+
+function desenhaBandeiradoBrasil(){
+    var width = 600;
+    var height = 400;
+    var inicioDoXDabandeira = 400;
+    var inicioDoYdABandeira = 150;
+    var raio = 100;
+
+    paintBrush.fillStyle = "green";
+    paintBrush.fillRect(inicioDoXDabandeira,inicioDoYdABandeira, width, height);
+
+    paintBrush.fillStyle = "yellow";
+    paintBrush.beginPath();
+    paintBrush.moveTo(inicioDoXDabandeira + width/2, inicioDoYdABandeira);
+    paintBrush.lineTo(inicioDoXDabandeira, inicioDoYdABandeira + height/2);
+    paintBrush.lineTo(inicioDoXDabandeira + width, inicioDoYdABandeira + height/2);
+    paintBrush.fill();
+
+    paintBrush.fillStyle = "yellow";
+    paintBrush.beginPath();
+    paintBrush.moveTo(inicioDoXDabandeira + width/2, inicioDoYdABandeira + height);
+    paintBrush.lineTo(inicioDoXDabandeira, inicioDoYdABandeira + height/2);
+    paintBrush.lineTo(inicioDoXDabandeira + width, inicioDoYdABandeira + height/2);
+    paintBrush.fill();
+
+    paintBrush.fillStyle = "darkblue";
+    paintBrush.beginPath();
+    paintBrush.arc(inicioDoXDabandeira + width/2, inicioDoYdABandeira + height/2, raio, 0, 2 * Math.PI);
+    paintBrush.fill();
+
+}
+
+function desenhaBandeiraDaAlemanha(){
+    var width = 200;
+    var height = 400;
+    var inicioDoXDabandeira = 400;
+    var inicioDoYdABandeira = 150;
+
+    paintBrush.fillStyle = "black";
+    paintBrush.fillRect(inicioDoXDabandeira,inicioDoYdABandeira, width, height);
+    
+
+    paintBrush.fillStyle = "red";
+    paintBrush.fillRect(inicioDoXDabandeira + width,inicioDoYdABandeira, width, height);
+    
+
+    paintBrush.fillStyle = "yellow";
+    paintBrush.fillRect(inicioDoXDabandeira + width * 2,inicioDoYdABandeira, width, height); 
+    
+}
+
+function limpaCanvas(){
+    var width = 600;
+    var height = 400;
+    var inicioDoXDabandeira = 400;
+    var inicioDoYdABandeira = 150;
+    paintBrush.clearRect(inicioDoXDabandeira,inicioDoYdABandeira, width, height);
+}
+
+var mostraBrasil = true;
+
+function trocaBandeira(){
+    if(mostraBrasil){
+        desenhaBandeiradoBrasil();
+    } else if(!mostraBrasil){ 
+        desenhaBandeiraDaAlemanha();
+    }
+    mostraBrasil = !mostraBrasil;
+}
+
+setInterval(trocaBandeira, 3000); 
+
+</script>

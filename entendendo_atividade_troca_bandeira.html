@@ -1,0 +1,30 @@
+<canvas width="600" height="600"></canvas>
+
+<script>
+
+var mostraBrasil = true;
+
+function trocaBandeira(){
+    if(mostraBrasil){
+        desenhaBandeiradoBrasil();
+    } else if(!mostraBrasil){ 
+        desenhaBandeiraDaAlemanha();
+    }
+    mostraBrasil = !mostraBrasil;
+}
+
+setInterval(trocaBandeira, 3000); 
+
+/* 1 - 
+setInterval(trocaBandeira, 3000); 
+* executa a funcao troca bandeira
+* funcao troca bandeira :
+ - mostraBrasil = verdadeiro, entao vai ser desenhado a bandeira do Brasil
+ - mostraBrasil = vai ser trocado por falso 
+
+ * executa a funcao troca bandeira
+ funcao troca bandeira :
+  - mostraBrasil =  falso, entao vai ser desenhado a bandeira da Alemanha
+  - mostraBrasil = vai ser trocado por verdadeiro */
+  
+</script>

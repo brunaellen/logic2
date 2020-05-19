@@ -1,0 +1,58 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var canvas = document.querySelector("canvas");
+    var paintBrush = canvas.getContext("2d");
+
+    var x = 20;
+    var y = 20;
+    var raio = 10;
+    var setaDireita = 39;
+    var setaEsquerda = 37;
+    var setaParaBaixo = 40;
+    var setaParaCima = 38;
+    var incremento = 10;
+
+    function desenhaTela(){
+         paintBrush.fillStyle  = "lightgray";
+         paintBrush.fillRect(0, 0, 600, 400);
+         paintBrush.fill();
+    }
+
+    function desenhaCirculo(x, y, raio){
+         paintBrush.fillStyle = "red";
+         paintBrush.beginPath();
+         paintBrush.arc(x, y, raio, 0, 2 * Math.PI);
+         paintBrush.fill();
+    }
+
+    function limpaTela(){
+         paintBrush.clearRect(0, 0 , 600, 400);
+    }
+
+    function desenhaCirculoAtual(){
+        limpaTela();
+        desenhaTela();
+        desenhaCirculo(x, y, raio);
+    }
+
+    setInterval(desenhaCirculoAtual, 20);
+
+    function leTeclado(evento){
+         if (evento.keyCode == setaDireita){
+             desenhaCirculoAtual(x, y, raio);
+             x = x + incremento;
+        } else if(evento.keyCode == setaEsquerda){
+            x = x - incremento;
+        } else if (evento.keyCode == setaParaBaixo){
+             y = y + incremento;
+        } else if(evento.keyCode == setaParaCima){
+             y = y - incremento;
+        }
+        console.log(x + "," +  y);
+    }
+    
+    document.onkeydown = leTeclado;
+     
+     </script>
